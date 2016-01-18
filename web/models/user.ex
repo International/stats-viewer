@@ -6,6 +6,8 @@ defmodule StatsViewer.User do
     field :crypted_password, :string
     field :password, :string, virtual: true
 
+    has_many :exercise_entries, StatsViewer.ExerciseEntry
+
     timestamps
   end
 

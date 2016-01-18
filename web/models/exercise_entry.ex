@@ -7,7 +7,7 @@ defmodule StatsViewer.ExerciseEntry do
     field :category, :string
     field :weight, :float
     field :reps, :integer
-    field :user_id, :integer
+    belongs_to :user, StatsViewer.User
 
     timestamps
   end
