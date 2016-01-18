@@ -16,7 +16,7 @@ defmodule StatsViewer.RegistrationController do
       {:ok, changeset} ->
         conn
         |> put_flash(:info, "Your account was created")
-        |> put_session(:current_user, user.id)
+        |> put_session(:current_user, changeset.id)
         |> redirect(to: "/")
       {:error, changeset} ->
         conn
