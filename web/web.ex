@@ -52,6 +52,9 @@ defmodule StatsViewer.Web do
       import StatsViewer.Router.Helpers
       import StatsViewer.ErrorHelpers
       import StatsViewer.Gettext
+
+      import StatsViewer.Session, only: [current_user: 1, logged_in?: 1]
+
     end
   end
 
