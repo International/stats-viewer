@@ -4,7 +4,7 @@ defmodule FitNotes.CsvToObjectMapperTest do
 
   require IEx
 
-  test "it should work" do
+  test "it should work to parse csv results" do
     adapted = FitNotes.CsvParser.parse(Path.join(__DIR__, "fit_notes_export.csv")) |>
       CsvToObjectMapper.adapt
     assert Enum.count(adapted) == 2

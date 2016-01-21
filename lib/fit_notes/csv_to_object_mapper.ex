@@ -3,7 +3,9 @@ defmodule FitNotes.CsvToObjectMapper do
 
   def adapt(csv_results) do
     for result <- Enum.drop(csv_results,1) do
-      %ExerciseEntry{}
+      %ExerciseEntry{
+        
+      }
     end
   end
 end
