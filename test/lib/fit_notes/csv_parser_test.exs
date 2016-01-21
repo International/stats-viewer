@@ -5,6 +5,6 @@ defmodule FitNotes.CsvParserTest do
 
   test "it should work" do
     result = FitNotes.CsvParser.parse(Path.join(__DIR__, "fit_notes_export.csv"))
-    assert Enum.count(result) == 21
+    assert Enum.count(result) == 3
   end
 end
