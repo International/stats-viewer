@@ -2,10 +2,8 @@ defmodule FitNotes.CsvToObjectMapperTest do
   use ExUnit.Case
   alias FitNotes.CsvToObjectMapper
 
-  require IEx
-
   test "it should work to map to db objects" do
-    entries = FitNotes.CsvParser.parse_into_entries(Path.join(__DIR__, "fit_notes_export.csv")) |>
+    entries = FitNotes.CsvParser.parse(Path.join(__DIR__, "fit_notes_export.csv")) |>
       CsvToObjectMapper.adapt
     assert Enum.count(entries) == 2
 
