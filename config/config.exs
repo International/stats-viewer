@@ -14,7 +14,7 @@ config :stats_viewer, StatsViewer.Endpoint,
   pubsub: [name: StatsViewer.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
-config :hound, server: "phantomjs"
+config :hound, driver: "phantomjs"
 
 # Configures Elixir's Logger
 config :logger, :console,

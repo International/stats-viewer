@@ -3,7 +3,7 @@ defmodule StatsViewer.HomePageTest do
 
   test "visiting homepage" do
     navigate_to("/")
-    IO.inspect(page_source())
+    assert page_title() == "Hello StatsViewer!"
   end
 
 end
