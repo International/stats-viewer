@@ -19,7 +19,7 @@ defmodule StatsViewer.Mixfile do
   def application do
     [mod: {StatsViewer, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin, :tzdata]]
+                    :phoenix_ecto, :postgrex, :comeonin, :tzdata, :hound]]
   end
 
   # Specifies which paths to compile per environment.
