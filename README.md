@@ -14,5 +14,6 @@ Registration/login functionality code implemented after reading: [this blog post
 
 ## Run integration tests:
 
+* phantomjs version: 1.9.8
 * start phantomjs `phantomjs --wd`
 * mix test
