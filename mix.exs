@@ -41,7 +41,8 @@ defmodule StatsViewer.Mixfile do
       {:csv, "~> 1.2.0"},
       {:comeonin, "~> 2.0"},
       {:credo, "~> 0.2", only: [:dev, :test]},
-      {:timex, "~> 1.0.0"}
+      {:timex, "~> 1.0.0"},
+      {:hound, "~> 0.8", only: [:dev, :test]}
    ]
   end
 
