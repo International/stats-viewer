@@ -16,11 +16,14 @@ defmodule StatsViewer.ModelCase do
 
   using do
     quote do
-      alias StatsViewer.Repo
+      use Timex
+      require IEx
+      alias StatsViewer.{Repo, User}
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query, only: [from: 1, from: 2]
+      import EctoFixtures, only: [fixtures: 1, fixtures: 2]
       import StatsViewer.ModelCase
     end
   end

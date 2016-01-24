@@ -12,6 +12,12 @@ defmodule StatsViewer.UserTest do
     EctoFixtures.fixtures(:users, opts)
   end
 
+  defp get_built_user(opts \\ %{}) do
+    %{users: %{test: user}} = build_user(opts)
+
+    user
+  end
+
   test "changeset with valid attributes" do
     changeset = User.changeset(%User{}, @valid_attrs)
     assert changeset.valid?
@@ -28,7 +34,7 @@ defmodule StatsViewer.UserTest do
   end
 
   test "simple fixture test with override" do
-    %{users: %{test: user}} = build_user(%{
+    user = get_built_user(%{
       users: %{
         test: %{
           email: "potato@mail.com"
@@ -39,6 +45,10 @@ defmodule StatsViewer.UserTest do
   end
 
   test "adding exercises to an existing user should work" do
-
+    [count] = Repo.all(from u in User, select: count(u.id))
+    assert count == 0
+    user = get_built_user
+    ee = EctoFixtures.fixtures(:exercise_entry_without_user)
+    IO.inspect ee
   end
 end

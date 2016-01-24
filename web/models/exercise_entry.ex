@@ -24,5 +24,19 @@ defmodule StatsViewer.ExerciseEntry do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
+    |> validate_existence_of_real_user_in_db
+  end
+
+  defp validate_existence_of_real_user_in_db(changeset) do
+    if changeset.changes[:user_id] do
+      if Repo.one(from u in User, where: u.id == ^changeset.changes.user_id,
+        select: count(u.id)) == 0 do
+        add_error changeset, :user, "must be a valid user"
+      else
+        changeset
+      end
+    else
+      add_error changeset, :user, "must be a valid user"
+    end
   end
 end
