@@ -25,4 +25,8 @@ defmodule StatsViewer.User do
     |> cast(params, @required_fields, @optional_fields)
     |> unique_constraint(:email)
   end
+
+  def add_exercise_entries(model, exercise_entries) do
+    
+  end
 end

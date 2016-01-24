@@ -42,7 +42,8 @@ defmodule StatsViewer.Mixfile do
       {:comeonin, "~> 2.0"},
       {:credo, "~> 0.2", only: [:dev, :test]},
       {:timex, "~> 1.0.0"},
-      {:hound, "~> 0.8", only: [:dev, :test]}
+      {:hound, "~> 0.8", only: [:dev, :test]},
+      {:ecto_fixtures, "0.0.2", only: [:test]}
    ]
   end
 
