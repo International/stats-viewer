@@ -42,7 +42,11 @@ defmodule StatsViewer.Mixfile do
       {:comeonin, "~> 2.0"},
       {:credo, "~> 0.2", only: [:dev, :test]},
       {:timex, "~> 1.0.0"},
-      {:hound, "~> 0.8", only: [:dev, :test]}
+      {:hound, "~> 0.8", only: [:dev, :test]},
+      {:ecto_fixtures, [
+        {:git,"https://github.com/dockyard/ecto_fixtures"},
+        {:ref, "93f45f5c54a6816e97560f028021c3d9491529fc"}
+      ]}
    ]
   end
 

@@ -20,6 +20,8 @@ defmodule StatsViewer.Web do
     quote do
       use Ecto.Schema
 
+      alias StatsViewer.{Repo, User, ExerciseEntry}
+
       import Ecto
       import Ecto.Changeset
       import Ecto.Query, only: [from: 1, from: 2]

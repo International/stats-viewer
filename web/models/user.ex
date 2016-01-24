@@ -11,6 +11,12 @@ defmodule StatsViewer.User do
     timestamps
   end
 
+  defimpl String.Chars, for: StatsViewer.User do
+    def to_string(model) do
+      "email: #{model.email}, id: #{model.id}"
+    end
+  end
+
   @required_fields ~w(email password)
   @optional_fields ~w()
 
@@ -24,5 +30,9 @@ defmodule StatsViewer.User do
     model
     |> cast(params, @required_fields, @optional_fields)
     |> unique_constraint(:email)
+  end
+
+  def add_exercise_entries(model, exercise_entries) do
+
   end
 end
