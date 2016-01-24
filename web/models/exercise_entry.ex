@@ -28,8 +28,9 @@ defmodule StatsViewer.ExerciseEntry do
   end
 
   defp validate_existence_of_real_user_in_db(changeset) do
-    if changeset.changes[:user_id] do
-      if Repo.one(from u in User, where: u.id == ^changeset.changes.user_id,
+    user_id = get_field(changeset, :user_id)
+    if user_id do
+      if Repo.one(from u in User, where: u.id == ^user_id,
         select: count(u.id)) == 0 do
         add_error changeset, :user, "must be a valid user"
       else
