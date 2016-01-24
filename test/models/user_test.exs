@@ -18,9 +18,8 @@ defmodule StatsViewer.UserTest do
     refute changeset.valid?
   end
 
-  test "adding exercise entries should work" do
-    %{users: users} = fixtures(:users)
-    IO.puts "users: #{users}"
-    assert users
+  test "simple fixture test" do
+    %{users: %{test: user}} = fixtures(:users)
+    assert user.email == Repo.get_by!(User, email: user.email).email
   end
 end
