@@ -3,7 +3,7 @@ defmodule StatsViewer.UserTest do
 
   alias StatsViewer.User
 
-  import EctoFixtures, only: [fixtures: 1]
+  alias EctoFixtures
 
   @valid_attrs %{password: "some content", email: "some content"}
   @invalid_attrs %{}
@@ -19,7 +19,18 @@ defmodule StatsViewer.UserTest do
   end
 
   test "simple fixture test" do
-    %{users: %{test: user}} = fixtures(:users)
+    %{users: %{test: user}} = EctoFixtures.fixtures(:users)
     assert user.email == Repo.get_by!(User, email: user.email).email
+  end
+
+  test "simple fixture test with override" do
+    %{users: %{test: user}} = EctoFixtures.fixtures(:users, %{
+      users: %{
+        test: %{
+          email: "potato@mail.com"
+        }
+      }
+    })
+    assert "potato@mail.com" == Repo.get_by!(User, email: user.email).email
   end
 end
