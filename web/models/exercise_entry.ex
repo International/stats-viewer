@@ -24,7 +24,7 @@ defmodule StatsViewer.ExerciseEntry do
   def changeset(model, params \\ :empty) do
     model
     |> cast(params, @required_fields, @optional_fields)
-    |> validate_existence_of_real_user_in_db
+    |> validate_existence_of_real_user_in_db # TODO: add foreign_key_constraint
   end
 
   defp validate_existence_of_real_user_in_db(changeset) do
