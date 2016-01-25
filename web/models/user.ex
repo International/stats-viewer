@@ -33,6 +33,10 @@ defmodule StatsViewer.User do
   end
 
   def add_exercise_entries(model, exercise_entries) do
-
+    exercise_entries |> Enum.each(fn ex ->
+      ex |>
+        Ecto.Changeset.change(%{user_id: model.id}) |>
+        Repo.insert!
+    end)
   end
 end

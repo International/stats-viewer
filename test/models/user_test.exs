@@ -48,7 +48,11 @@ defmodule StatsViewer.UserTest do
     [count] = Repo.all(from u in User, select: count(u.id))
     assert count == 0
     user = get_built_user
-    ee = EctoFixtures.fixtures(:exercise_entry_without_user)
-    IO.inspect ee
+    %{exercise_entry_without_user: %{test: ee}} =
+      EctoFixtures.fixtures(:exercise_entry_without_user, insert: false)
+
+    User.add_exercise_entries(user, [ee])
+    preloaded = user |> Repo.preload(:exercise_entries)
+    assert Enum.count(preloaded.exercise_entries) == 1
   end
 end
