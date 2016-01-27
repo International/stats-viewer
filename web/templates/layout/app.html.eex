@@ -24,8 +24,11 @@
   </head>
 
   <body>
-    <%= render StatsViewer.PageView, "logged_in.html", v: @view_module, t: @view_template, asn: assigns %>
-
+    <%= if logged_in?(@conn) do %>
+      <%= render StatsViewer.PageView, "logged_in.html", vm: @view_module, vt: @view_template, child_assigns: assigns %>
+    <% else %>
+      <%= render StatsViewer.PageView, "not_logged_in.html", vm: @view_module, vt: @view_template, child_assigns: assigns %>
+    <% end %>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
