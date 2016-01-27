@@ -6,7 +6,8 @@ defmodule StatsViewer.RegistrationController do
 
   def new(conn, _params) do
     changeset = User.changeset(%User{})
-    render conn, changeset: changeset
+    map_vals = tpl_values(changeset)
+    render conn, map_vals
   end
 
   def create(conn, %{"user" => user_params}) do
@@ -21,8 +22,12 @@ defmodule StatsViewer.RegistrationController do
       {:error, changeset} ->
         conn
         |> put_flash(:info, "Unable to create account")
-        |> render("new.html", changeset: changeset)
+        |> render("new.html", tpl_values(changeset))
     end
+  end
+
+  defp tpl_values(changeset) do
+    [{:changeset,changeset}, {:v, StatsViewer.RegistrationView}, {:a, "new.html"}]
   end
 
 end

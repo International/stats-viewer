@@ -46,7 +46,7 @@
               <li><a href="#">Dashboard</a></li>
               <li><a href="#">Settings</a></li>
               <li><a href="#">Profile</a></li>
-              <li><a href="#">Help</a></li>
+              <li><a href="<%= session_path(@conn, :delete) %>">Logout</a></li>
             </ul>
 
             <form class="navbar-form navbar-right">
@@ -85,7 +85,7 @@
         </div>
       </div>
     <% else %>
-      <%= render StatsViewer.SessionView, "new.html", assigns %>
+      <%= render @v, @a, assigns %>
     <% end %>
 
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>

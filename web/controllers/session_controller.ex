@@ -2,7 +2,7 @@ defmodule StatsViewer.SessionController do
   use StatsViewer.Web, :controller
 
   def new(conn, params) do
-    render conn, "new.html"
+    render conn, "new.html", tpl_pars
   end
 
   def create(conn, %{"session" => session_params}) do
@@ -15,7 +15,7 @@ defmodule StatsViewer.SessionController do
       :error ->
         conn
         |> put_flash(:info, "Wrong email or password")
-        |> render("new.html")
+        |> render("new.html", tpl_pars)
     end
   end
 
@@ -24,5 +24,9 @@ defmodule StatsViewer.SessionController do
       |> delete_session(:current_user)
       |> put_flash(:info, "Logged out")
       |> redirect(to: "/")
+  end
+
+  defp tpl_pars do
+    [{:v, StatsViewer.SessionView}, {:a, "new.html"}]
   end
 end
