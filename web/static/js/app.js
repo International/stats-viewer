@@ -27,14 +27,55 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <h1>App</h1>
+        <nav className="navbar navbar-inverse navbar-fixed-top">
+          <div className="container-fluid">
+            <div className="navbar-header">
 
-        <ul>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/inbox">Inbox</Link></li>
-        </ul>
+              <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
 
-        {this.props.children}
+              <a className="navbar-brand" href="/">StatsViewer</a>
+            </div>
+
+            <div id="navbar" className="navbar-collapse collapse">
+
+              <ul className="nav navbar-nav navbar-right">
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a href="<%= session_path(@conn, :delete) %>">Logout</a></li>
+              </ul>
+
+              <form className="navbar-form navbar-right">
+                <input type="text" className="form-control" placeholder="Search..."/>
+              </form>
+            </div>
+
+          </div>
+        </nav>
+
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-3 col-md-2 sidebar">
+              <ul className="nav nav-sidebar">
+                <li className="active"><a href="#">Overview <span className="sr-only">(current)</span></a></li>
+              </ul>
+              <ul className="nav nav-sidebar">
+                <li><a href="">Nav item</a></li>
+              </ul>
+              <ul className="nav nav-sidebar">
+                <li><a href="">Nav item again</a></li>
+              </ul>
+            </div>
+            <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+            </div>
+          </div>
+        </div>
       </div>
     )
   }
