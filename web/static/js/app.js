@@ -47,7 +47,7 @@ const App = React.createClass({
                 <li><a href="#">Dashboard</a></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Profile</a></li>
-                <li><a href="<%= session_path(@conn, :delete) %>">Logout</a></li>
+                <li><a href="/logout">Logout</a></li>
               </ul>
 
               <form className="navbar-form navbar-right">
