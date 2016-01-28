@@ -20,6 +20,7 @@ import "phoenix_html"
 
 import socket from "./socket"
 import React from "react"
+import ReactDOM from "react-dom"
 
 let HelloWorld = React.createClass({
   render() {
@@ -27,7 +28,7 @@ let HelloWorld = React.createClass({
   }
 })
 
-React.render(
+ReactDOM.render(
   <HelloWorld />,
   document.getElementById('root')
 );
