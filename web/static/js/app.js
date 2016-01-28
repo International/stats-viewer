@@ -21,6 +21,7 @@ import "phoenix_html"
 import socket from "./socket"
 import React from "react"
 import ReactDOM from "react-dom"
+import { Router, Route, Link } from 'react-router'
 
 let HelloWorld = React.createClass({
   render() {
